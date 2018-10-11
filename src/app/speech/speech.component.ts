@@ -13,8 +13,12 @@ export class SpeechComponent implements OnInit {
   }
 
   readAloud(text: string) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    speechSynthesis.speak(utterance);
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    } else {
+      alert('Dieser Browser unterstützt die Speech Synthesis API nicht!');
+    }
   }
 
 }
