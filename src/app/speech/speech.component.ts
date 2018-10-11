@@ -12,4 +12,9 @@ export class SpeechComponent implements OnInit {
   ngOnInit() {
   }
 
+  readAloud(text: string) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    speechSynthesis.speak(utterance);
+  }
+
 }
