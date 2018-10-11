@@ -1,6 +1,6 @@
 {
-  "name": "my-pwa",
-  "short_name": "my-pwa",
+  "name": "Meine PWA-Demo",
+  "short_name": "PWA-Demo",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
