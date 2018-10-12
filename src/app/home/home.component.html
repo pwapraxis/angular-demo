@@ -3,8 +3,8 @@
 </mat-form-field>
 <button mat-button (click)="addTodo(textbox.value)">Einfügen</button>
 
-<mat-selection-list>
-  <mat-list-option checkboxPosition="before" *ngFor="let todo of todos">
+<mat-selection-list (selectionChange)="toggleTodo($event)">
+  <mat-list-option checkboxPosition="before" *ngFor="let todo of todos" [value]="todo" [selected]="todo.done">
     {{ todo.title }}
   </mat-list-option>
 </mat-selection-list>
