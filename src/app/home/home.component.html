@@ -2,3 +2,9 @@
   <input matInput placeholder="To-do-Titel" #textbox>
 </mat-form-field>
 <button mat-button (click)="addTodo(textbox.value)">Einfügen</button>
+
+<mat-selection-list>
+  <mat-list-option checkboxPosition="before" *ngFor="let todo of todos">
+    {{ todo.title }}
+  </mat-list-option>
+</mat-selection-list>
