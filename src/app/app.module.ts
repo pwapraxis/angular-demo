@@ -12,6 +12,7 @@ import { SpeechComponent } from './speech/speech.component';
 import { AboutComponent } from './about/about.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { environment } from '../environments/environment';
     MatIconModule,
     MatListModule,
     MatInputModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

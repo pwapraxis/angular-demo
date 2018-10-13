@@ -2,6 +2,7 @@
   <input matInput placeholder="To-do-Titel" #textbox>
 </mat-form-field>
 <button mat-button (click)="addTodo(textbox.value)">Einfügen</button>
+<button mat-button (click)="sync()">Synchronisieren</button>
 
 <mat-selection-list (selectionChange)="toggleTodo($event)">
   <mat-list-option checkboxPosition="before" *ngFor="let todo of todos" [value]="todo" [selected]="todo.done">
