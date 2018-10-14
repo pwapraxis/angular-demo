@@ -5,6 +5,8 @@ import * as uuidV4 from 'uuid/v4';
 import { Todo } from '../todo';
 import { MatSelectionListChange } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
+import { SwPush } from '@angular/service-worker';
+import { filter, switchMap, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +15,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   todos: Todo[];
+  canRegister = false;
 
-  constructor(private databaseService: DatabaseService, private httpClient: HttpClient) { }
+  constructor(private databaseService: DatabaseService, private httpClient: HttpClient, private swPush: SwPush) { }
 
   ngOnInit() {
     this.updateTodos();
+    this.swPush.subscription.pipe(
+      tap(sub => this.canRegister = !sub && Notification.permission !== 'denied'),
+      filter(sub => !!sub),
+      switchMap(sub => this.httpClient.post(`${environment.baseUrl}push`, sub.toJSON()))
+    ).subscribe();
+  }
+
+  async registerForPush() {
+    await this.swPush.requestSubscription({
+      serverPublicKey: ' << HIER KEY EINFÜGEN >> '
+    });
   }
 
   async updateTodos() {
