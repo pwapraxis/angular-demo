@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShellComponent } from './shell/shell.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatInputModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatInputModule, MatSnackBarModule, MatSnackBar } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { SpeechComponent } from './speech/speech.component';
 import { AboutComponent } from './about/about.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServiceWorkerModule, SwUpdate } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -34,9 +34,17 @@ import { HttpClientModule } from '@angular/common/http';
     MatListModule,
     MatInputModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(swUpdate: SwUpdate, matSnackbar: MatSnackBar) {
+    swUpdate.available.subscribe(() => {
+      const snackbar = matSnackbar.open('Neue Version verfügbar.', 'Neu laden');
+      snackbar.onAction().subscribe(() => window.location.reload());
+    });
+  }
+}
