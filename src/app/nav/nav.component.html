@@ -23,7 +23,11 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>MyTodo</span>
+      <span>Meine To-do-App</span>
+      <div class="spacer"></div>
+      <button mat-icon-button (click)="sync()">
+        <mat-icon aria-label="Synchronisieren">sync</mat-icon>
+      </button>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

@@ -1,12 +1,14 @@
-<mat-form-field>
-  <input matInput placeholder="To-do-Titel" #textbox>
-</mat-form-field>
-<button mat-button (click)="addTodo(textbox.value)">Einfügen</button>
-<button mat-button (click)="sync()">Synchronisieren</button>
-<button mat-button (click)="registerForPush()" *ngIf="canRegister">Bei abgeschlossenen Aufgaben informieren</button>
+<mat-card *ngIf="canRegister">
+  <p>Diese App kann Pushbenachrichtigungen anzeigen, wenn Aufgaben abgeschlossen wurden. Möchten Sie dies aktivieren?</p>
+  <button mat-raised-button color="primary" (click)="registerForPush()">Ja, bitte informieren</button>
+</mat-card>
 
 <mat-selection-list (selectionChange)="toggleTodo($event)">
   <mat-list-option checkboxPosition="before" *ngFor="let todo of todos" [value]="todo" [selected]="todo.done">
     {{ todo.title }}
   </mat-list-option>
 </mat-selection-list>
+
+<button mat-fab (click)="addTodo()">
+  <mat-icon aria-label="To-do einfügen">add</mat-icon>
+</button>
