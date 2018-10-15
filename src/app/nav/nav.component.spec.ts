@@ -1,20 +1,20 @@
 
 import { fakeAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ShellComponent } from './shell.component';
+import { NavComponent } from './nav.component';
 
 describe('ShellComponent', () => {
-  let component: ShellComponent;
-  let fixture: ComponentFixture<ShellComponent>;
+  let component: NavComponent;
+  let fixture: ComponentFixture<NavComponent>;
 
   beforeEach(fakeAsync(() => {
     TestBed.configureTestingModule({
       imports: [MatSidenavModule],
-      declarations: [ShellComponent]
+      declarations: [NavComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ShellComponent);
+    fixture = TestBed.createComponent(NavComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
