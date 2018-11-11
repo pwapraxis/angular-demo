@@ -58,7 +58,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       width: '350px',
       data: {title: ''},
     }).afterClosed().pipe(
-      filter(title => title !== ''),
+      filter(title => !!title),
       switchMap((title: string) => fromPromise(this.databaseService.todos.add({id: uuidV4(), title, done: false}))),
     ).subscribe(() => this.updateTodos());
   }
