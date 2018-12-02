@@ -7,7 +7,15 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:packaged": "ng build -c packaged --base-href .",
+    "package-mobile": "npm run build:packaged -- --outputPath=dist/my-pwa-cordova/www && npm run package-mobile:copy && npm run package-mobile:adjust && npm run package-mobile:pack",
+    "package-mobile:copy": "cpy '**' ../../dist/my-pwa-cordova --parents --cwd=resources/cordova",
+    "package-mobile:adjust": "replace-in-file '</noscript>' '</noscript><script src=\"cordova.js\"></script>' dist/my-pwa-cordova/www/index.html",
+    "package-mobile:pack": "cd dist/my-pwa-cordova && cordova prepare",
+    "package-desktop": "npm run build:packaged -- --outputPath=dist/my-pwa-electron && npm run package-desktop:copy && npm run package-desktop:pack",
+    "package-desktop:copy": "cpy 'resources/electron/**' dist/my-pwa-electron && cpy dist/my-pwa dist/my-pwa-electron",
+    "package-desktop:pack": "electron-packager dist/my-pwa-electron --all --electron-version 3.0.10 --asar --out dist --overwrite"
   },
   "private": true,
   "dependencies": {
@@ -40,6 +48,9 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.3.0",
+    "cordova": "^8.1.2",
+    "cpy-cli": "^2.0.0",
+    "electron-packager": "^12.2.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
@@ -48,6 +59,7 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+    "replace-in-file": "^3.4.2",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.1.1"

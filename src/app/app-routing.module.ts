@@ -1,3 +1,4 @@
+import { environment } from '../environments/environment';
 import { AboutComponent } from './about/about.component';
 import { SpeechComponent } from './speech/speech.component';
 import { HomeComponent } from './home/home.component';
@@ -11,7 +12,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: environment.useHashBasedRouting })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
