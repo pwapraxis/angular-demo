@@ -1,27 +1,33 @@
-# MyPwa
+# PWA Praxisbuch: Todo-App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.0-rc.2.
+Diese App wird unter [https://pwapraxis.liebel.io](https://pwapraxis.liebel.io) ausgeführt.
 
-## Development server
+## Progressive Web App
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Zum Bauen der Progressive Web App führen Sie folgenden Befehl auf der Kommandozeile aus:
 
-## Code scaffolding
+```
+ng build --prod
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Progressive Web Apps lassen sich aus dem Browser als Desktop- und Mobil-App installieren.
 
-## Build
+## Desktop-App
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Müssen Sie etwa zum Zugriff auf eine bestimmte native API die Webanwendung in einem nativen Anwendungsrahmen hosten, so geschieht dies für den Desktop mithilfe von Electron.
 
-## Running unit tests
+Der nachfolgende Befehl erzeugt Anwendungsbündel für Windows, macOS und Linux. Unter macOS und Linux muss dazu Wine installiert sein.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm run package-desktop
+```
 
-## Running end-to-end tests
+## Mobil-App
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Müssen Sie etwa zum Zugriff auf eine bestimmte native API die Webanwendung in einem nativen Anwendungsrahmen hosten, so geschieht dies für Mobilplattformen mithilfe von Cordova.
 
-## Further help
+Der nachfolgende Befehl erzeugt Anwendungsbündel für iOS und Android. Zum Bauen benötigen Sie die nativen Plattform-SDKs und für iOS einen Mac (echte Hardware oder über einen Clouddienst).
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+npm run package-mobile
+```
