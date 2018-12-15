@@ -20,13 +20,13 @@ import {
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { SpeechComponent } from './speech/speech.component';
-import { AboutComponent } from './about/about.component';
 import { ServiceWorkerModule, SwUpdate } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
 import { BuyComponent } from './buy/buy.component';
+import { SyncSettingsComponent } from './sync-settings/sync-settings.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +34,9 @@ import { BuyComponent } from './buy/buy.component';
     NavComponent,
     HomeComponent,
     SpeechComponent,
-    AboutComponent,
     TodoDialogComponent,
     BuyComponent,
+    SyncSettingsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

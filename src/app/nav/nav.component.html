@@ -9,10 +9,10 @@
     <mat-toolbar color="primary">Menü</mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="">Startseite</a>
-      <a mat-list-item routerLink="speech">Speech Synthesis</a>
+      <a mat-list-item (click)="install()" *ngIf="installPrompt">App installieren</a>
       <a mat-list-item routerLink="buy">Todo Premium kaufen</a>
-      <a mat-list-item routerLink="about">Über…</a>
-      <a mat-list-item (click)="install()" *ngIf="installPrompt">Installieren</a>
+      <a mat-list-item routerLink="speech">Sprachausgabe</a>
+      <a mat-list-item href="https://liebel.org/privacy.html" target="_blank">Impressum/Datenschutz</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
