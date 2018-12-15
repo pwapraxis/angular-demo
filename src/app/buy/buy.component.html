@@ -1,0 +1,16 @@
+<mat-card>
+  <p>
+    Kaufen Sie <strong>Todo Premium</strong> für viele tolle Zusatzfunktionalitäten für nur <strong>1,09 EUR</strong>!
+    (Hinweis: Es wird keine tatsächliche Abbuchung durchgeführt.)
+  </p>
+
+  <button mat-raised-button color="primary" (click)="buy()">Jetzt kaufen</button>
+
+  <ng-container *ngIf="response">
+    <p class="note">
+      <i class="material-icons">check_circle</i>
+      Anforderung der Käuferdaten erfolgreich.
+    </p>
+    <pre>{{ response | json }}</pre>
+  </ng-container>
+</mat-card>

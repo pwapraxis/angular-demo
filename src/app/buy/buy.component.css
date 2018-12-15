@@ -1,0 +1,10 @@
+.note {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+pre {
+  max-width: 100%;
+  overflow: scroll;
+}

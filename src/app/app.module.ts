@@ -26,6 +26,7 @@ import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
+import { BuyComponent } from './buy/buy.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
     SpeechComponent,
     AboutComponent,
     TodoDialogComponent,
+    BuyComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
