@@ -1,5 +1,7 @@
 # PWA Praxisbuch: Todo-App
 
+[![Build Status](https://dev.azure.com/pwapraxis/demo/_apis/build/status/demo-CI?branchName=master)](https://dev.azure.com/pwapraxis/demo/_build/latest?definitionId=2?branchName=master)
+
 Diese App wird unter [https://pwapraxis.liebel.io](https://pwapraxis.liebel.io) ausgeführt.
 
 ## Progressive Web App
