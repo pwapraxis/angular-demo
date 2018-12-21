@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   async registerForPush() {
     await this.swPush.requestSubscription({
-      serverPublicKey: ' << HIER KEY EINFÜGEN >> '
+      serverPublicKey: environment.pushPublicKey
     });
   }
 
