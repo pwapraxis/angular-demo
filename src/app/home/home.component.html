@@ -1,5 +1,7 @@
 <mat-card *ngIf="canRegister">
-  <p>Diese App kann Pushbenachrichtigungen anzeigen, wenn Aufgaben abgeschlossen wurden. Möchten Sie dies aktivieren?</p>
+  <p>Diese App kann Pushbenachrichtigungen anzeigen, wenn abgeschlossene Aufgaben synchronisiert werden (drücken Sie
+    dazu <mat-icon>sync</mat-icon> oben rechts). Möchten Sie dies aktivieren?
+  </p>
   <button mat-raised-button color="primary" (click)="registerForPush()">Ja, bitte informieren</button>
 </mat-card>
 
