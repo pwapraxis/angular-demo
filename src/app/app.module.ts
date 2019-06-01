@@ -27,6 +27,7 @@ import { RouterModule } from '@angular/router';
 import { TodoDialogComponent } from './todo-dialog/todo-dialog.component';
 import { BuyComponent } from './buy/buy.component';
 import { SyncSettingsComponent } from './sync-settings/sync-settings.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SyncSettingsComponent } from './sync-settings/sync-settings.component';
     TodoDialogComponent,
     BuyComponent,
     SyncSettingsComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

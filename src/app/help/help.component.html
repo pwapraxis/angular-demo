@@ -1,0 +1,28 @@
+<mat-card>
+  <p>
+    Diese Demoanwendung erlaubt es Ihnen, Todo-Einträge offline anzulegen und deren Status (erledigt/nicht erledigt)
+    anzupassen. Mithilfe der Schaltfläche <mat-icon>sync</mat-icon> werden die Einträge mit dem Server synchronisiert.
+    Bei der ersten Synchronisation erhalten Sie dabei zwei neue Einträge, <em>Angular lernen</em> und
+    <em>PWA-Buch lesen</em>. Daran können Sie erkennen, dass die Synchronisierung geklappt hat.
+  </p>
+  <p>
+    Wenn Sie den Status eines Todo-Eintrages auf <em>erledigt</em> ändern und dieser zuvor auf dem Server noch nicht
+    erledigt war, schickt dieser eine Push-Nachricht an Clients, die sich für Pushnachrichten registriert haben. Die
+    Registrierung erfolgt auf der <a routerLink="/">Startseite</a> und wird Ihnen nur dann angeboten, wenn Ihr Browser
+    Pushbenachrichtigungen empfangen kann.
+  </p>
+  <p>
+    Die gespeicherten Todo-Einträge sowie Pushregistrierungen werden auf dem Server pro IP-Adresse hinterlegt. Wenn Sie
+    den Empfang von Pushbenachrichtigungen auf einem unterstützten Mobilgerät testen wollen, stellen Sie daher sicher,
+    dass beide Geräte dieselbe öffentliche IP-Adresse aufweisen, zum Beispiel, indem Sie beide im selben WiFi-Netz sind.
+    Teilen Sie Ihre IP-Adresse mit einer anderen Person, werden Sie auch dessen Todo-Einträge und Benachrichtigungen
+    erhalten. In diesem Fall schlagen Sie bitte in der Browserdokumentation nach, welche Schritte durchgeführt werden
+    müssen, um Pushbenachrichtigungen wieder zu deaktivieren. Für Google Chrome ist dies im Buch auf Seite 296 unten
+    beschrieben.
+  </p>
+  <p>
+    Todo-Einträge und Pushregistrierungen werden auf dem Server nur In-Memory aufbewahrt, aber nicht persistiert. Beides
+    kann daher jederzeit zurückgesetzt werden. Verwenden Sie diese Anwendung daher nicht für ihre tatsächliche
+    Todo-Liste.
+  </p>
+</mat-card>
