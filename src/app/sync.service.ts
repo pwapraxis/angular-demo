@@ -19,6 +19,17 @@ export class SyncService {
     const todos = await this.databaseService.todos.toArray();
     const newTodos = await this.httpClient.post<Todo[]>(`${environment.baseUrl}sync`, todos).toPromise();
     await this.databaseService.todos.bulkPut(newTodos);
+
+    if ('setAppBadge' in navigator) {
+      const allTodos = await this.databaseService.todos.toArray();
+      const todoCount = allTodos.filter(({ done }) => !done).length;
+      if (todoCount) {
+        (navigator as any).setAppBadge(todoCount);
+      } else {
+        (navigator as any).clearAppBadge();
+      }
+    }
+
     this.syncDoneSubject.next();
   }
 }
